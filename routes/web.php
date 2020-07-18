@@ -13,15 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/showdetail/{name}/{age}/{text}', function ($name,$age,$text) {
-    return "สวัดดี $name คุณมีอายุ $age ปี และคุณพูดว่า $text";
-});
+// Route::get('/showdetail/{name}/{age}/{text}', function ($name,$age,$text) {
+//     return "สวัดดี $name คุณมีอายุ $age ปี และคุณพูดว่า $text";
+// });
 
-Route::get("/บวกเลข/{num1}/{num2}",function ($num1, $num2){
-    return $num1 + $num2;
+// Route::get("/บวกเลข/{num1}/{num2}",function ($num1, $num2){
+//     return $num1 + $num2;
 
-});
+// });
+
+Route::get('/', 'HomeController@index');
+Route::get('/greeting/{name}', 'HomeController@greeting');
+Route::get("/บวกเลข/{num1}/{num2}/{num3}", 'HomeController@calculator');
+
+Route::get('/user', 'UserController@index');
+Route::get('/user/show/{id}', 'UserController@show');
+Route::get('/user/update/{id}', 'UserController@update');
